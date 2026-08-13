@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2317班学委通知平台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: #f5f7fa;
+            color: #333;
+            line-height: 1.7;
+        }
+        .top-bar {
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar h1 { font-size: 22px; font-weight: 600; }
+        .back-btn {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 18px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 6px;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        .back-btn:hover { background: rgba(255,255,255,0.15); }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .section {
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+        .section-title {
+            padding: 18px 25px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .title-school { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+        .title-college { background: linear-gradient(90deg, #2980b9, #1f618d); }
+        .title-class { background: linear-gradient(90deg, #27ae60, #1e8449); }
+        .notice-list {
+            list-style: none;
+            padding: 10px 0;
+        }
+        .notice-item {
+            padding: 15px 25px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .notice-item:last-child { border-bottom: none; }
+        .notice-item:hover { background: #f8f9fa; }
+        .notice-title {
+            flex: 1;
+            color: #333;
+            text-decoration: none;
+        }
+        .notice-title:hover { color: #2a5298; }
+        .notice-date {
+            color: #999;
+            font-size: 14px;
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 10px;
+            color: #fff;
+        }
+        .tag-urgent { background: #e74c3c; }
+        .tag-new { background: #f39c12; }
+        .empty {
+            padding: 40px;
+            text-align: center;
+            color: #bbb;
+        }
+        @media (max-width: 600px) {
+            .top-bar { padding: 15px 20px; }
+            .notice-item { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .notice-date { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>2317班学委通知平台</h1>
+        <a href="index.html" class="back-btn">← 返回主页</a>
+    </div>
+
+    <div class="container">
+        <!-- 校级通知 -->
+        <div class="section">
+            <div class="section-title title-school">📌 校级通知</div>
+            <ul class="notice-list">
+                <li class="notice-item">
+                    <a href="#" class="notice-title">
+                        <span class="tag tag-urgent">紧急</span>
+                        关于2027届推荐免试研究生工作安排的通知
+                    </a>
+                    <span class="notice-date">2026-08-03</span>
+                </li>
+                <li class="notice-item">
+                    <a href="#" class="notice-title">
+                        <span class="tag tag-new">最新</span>
+                        2026-2027学年第一学期选课通知
+                    </a>
+                    <span class="notice-date">2026-07-28</span>
+                </li>
+                <li class="notice-item">
+                    <a href="#" class="notice-title">关于暑期小学期教学安排的补充通知</a>
+                    <span class="notice-date">2026-07-15</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 院级通知 -->
+        <div class="section">
+            <div class="section-title title-college">📌 院级通知</div>
+            <ul class="notice-list">
+                <li class="notice-item">
+                    <a href="#" class="notice-title">
+                        <span class="tag tag-new">最新</span>
+                        机械与车辆学院2027年推免课程认定及成绩计算细则
+                    </a>
+                    <span class="notice-date">2026-08-03</span>
+                </li>
+                <li class="notice-item">
+                    <a href="#" class="notice-title">关于开展大学生创新创业训练计划项目结题验收的通知</a>
+                    <span class="notice-date">2026-07-20</span>
+                </li>
+                <li class="notice-item">
+                    <a href="#" class="notice-title">2026年暑期社会实践立项结果公示</a>
+                    <span class="notice-date">2026-07-10</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 班级通知 -->
+        <div class="section">
+            <div class="section-title title-class">📌 班级通知</div>
+            <ul class="notice-list">
+                <li class="notice-item">
+                    <a href="#" class="notice-title">
+                        <span class="tag tag-urgent">紧急</span>
+                        请于8月5日前完成推免意向统计填报
+                    </a>
+                    <span class="notice-date">2026-08-02</span>
+                </li>
+                <li class="notice-item">
+                    <a href="#" class="notice-title">新学期教材领取安排通知</a>
+                    <span class="notice-date">2026-07-30</span>
+                </li>
+                <li class="notice-item">
+                    <a href="#" class="notice-title">班级暑期安全提醒及返校须知</a>
+                    <span class="notice-date">2026-07-25</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
