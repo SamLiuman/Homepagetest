@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronEgg服务平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+        .header {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 60px;
+        }
+        .header h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .entry-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            width: 100%;
+        }
+        .entry-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 45px 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .entry-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: #fff;
+        }
+        .icon-1 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .icon-2 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .icon-3 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .entry-card h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .entry-card p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.6;
+        }
+        .footer {
+            margin-top: 80px;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 26px; }
+            .entry-card { padding: 35px 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>IronEgg服务平台</h1>
+        <p>班级事务 · 成绩计算 · 常务会议</p>
+    </div>
+
+    <div class="entry-container">
+        <a href="class-notice.html" class="entry-card">
+            <div class="card-icon icon-1">📢</div>
+            <h2>2317班学委入口</h2>
+            <p>校级通知、院级通知、班级通知统一发布平台</p>
+        </a>
+
+        <a href="grade-calc.html" class="entry-card">
+            <div class="card-icon icon-2">📊</div>
+            <h2>综合成绩计算入口</h2>
+            <p>各专业成绩初步计算查询系统</p>
+        </a>
+
+        <a href="ie-conference.html" class="entry-card">
+            <div class="card-icon icon-3">🏛️</div>
+            <h2>IE大会入口</h2>
+            <p>教学科研竞赛委员会、经济与审计委员会通知</p>
+        </a>
+    </div>
+
+    <div class="footer">
+        © 2026 IronEgg · Powered by GitHub Pages
+    </div>
+</body>
+</html>
