@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE大会通知平台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: #f0f2f5;
+            color: #333;
+            line-height: 1.7;
+        }
+        .top-bar {
+            background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+            color: #fff;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-bar h1 { font-size: 20px; font-weight: 600; }
+        .back-btn {
+            color: #fff;
+            text-decoration: none;
+            padding: 7px 16px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .back-btn:hover { background: rgba(255,255,255,0.15); }
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .committee-section {
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            overflow: hidden;
+        }
+        .committee-header {
+            padding: 22px 30px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .header-1 { background: linear-gradient(90deg, #2c3e50, #4a6572); }
+        .header-2 { background: linear-gradient(90deg, #d35400, #e67e22); }
+        .committee-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .committee-header .icon { font-size: 24px; }
+        .notice-list {
+            list-style: none;
+            padding: 10px 0;
+        }
+        .notice-item {
+            padding: 16px 30px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .notice-item:last-child { border-bottom: none; }
+        .notice-item:hover { background: #f8f9fa; }
+        .notice-title {
+            flex: 1;
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .notice-title:hover { color: #6c5ce7; }
+        .notice-date {
+            color: #999;
+            font-size: 14px;
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-right: 12px;
+            color: #fff;
+            background: #e74c3c;
+        }
+        .badge-meeting { background: #9b59b6; }
+        .badge-doc { background: #3498db; }
+        @media (max-width: 600px) {
+            .top-bar { padding: 15px 20px; }
+            .notice-item { flex-direction: column; align-items: flex-start; gap: 6px; }
+            .notice-date { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>IE大会通知平台</h1>
+        <a href="index.html" class="back-btn">← 返回主页</a>
+    </div>
+
+    <div class="container">
+        <!-- 抽象评论 -->
+        <div class="committee-section">
+            <div class="committee-header header-1">
+                <span class="icon">🏛️</span>
+                <h2>抽象时政评论</h2>
+            </div>
+            <ul class="notice-list">
+                <li class="notice-item">
+                    <a href="#" class="notice-title">
+                        <span class="badge badge-meeting">评论</span>
+                        关于召开2026年秋季学期教学科研竞赛委员会第一次全体会议的通知
+                    </a>
+                    <span class="notice-date">2026-08-01</span>
+                </li>
+                <li class="notice-item">
+                    <a href="#" class="notice-title">
+                        <span class="badge badge-meeting">评论</span>
+                        2026年度学科竞赛立项评审结果公示
+                    </a>
+                    <span class="notice-date">2026-07-25</span>
+                </li>
+              </ul>
+        </div>
+
+	<!-- 教学科研竞赛委员会 -->
+        <div class="committee-section">
+            <div class="committee-header header-1">
+                <span class="icon">🎓</span>
+                <h2>教学科研竞赛委员会</h2>
+            </div>
+            <ul class="notice-list">
+                <li class="notice-item">
+                    <a href="#" class="notice-title">
+                        <span class="badge badge-doc">文件</span>
+                        关于感谢第八届北京市大学生节能节水低碳减排竞赛IE团队及相关人员的通告
+                    </a>
+                    <span class="notice-date">2026-08-01</span>
+                </li>
+                <li class="notice-item">
+                    <a href="#" class="notice-title">
+                        <span class="badge badge-doc">文件</span>
+                        关于感谢第十届北京理工大学权益提案大赛IE团队及相关人员的通告
+                    </a>
+                    <span class="notice-date">2026-08-01</span>
+                </li>
+                <li class="notice-item">
+                    <a href="#" class="notice-title">
+                        <span class="badge badge-doc">文件</span>
+                        关于感谢第八届北京市大学生节能节水低碳减排竞赛IE团队及相关人员的通告
+                    </a>
+                    <span class="notice-date">2026-08-01</span>
+                </li>
+             </ul>
+        </div>
+
+
+        <!-- 经济与审计委员会 -->
+        <div class="committee-section">
+            <div class="committee-header header-2">
+                <span class="icon">💰</span>
+                <h2>经济与审计委员会</h2>
+            </div>
+            <ul class="notice-list">
+               <li class="notice-item">
+                    <a href="#" class="notice-title">
+                        <span class="badge badge-doc">文件</span>
+                        2025年第1号公告：2025年度预算执行等情况审计结果
+                    </a>
+                    <span class="notice-date">2026-07-15</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
