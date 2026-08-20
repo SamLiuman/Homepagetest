@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2022级机械与车辆学院各专业保研情况</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:#f0f2f5;min-height:100vh;color:#333}
+/* 顶栏 */
+.top-bar{background:linear-gradient(90deg,#0f4c81,#1a73e8);color:#fff;padding:18px 40px;display:flex;justify-content:space-between;align-items:center}
+.top-bar h1{font-size:20px;font-weight:600}
+.top-bar .sub{font-size:13px;opacity:.85;margin-top:4px;font-weight:normal}
+.back-btn{color:#fff;text-decoration:none;padding:7px 16px;border:1px solid rgba(255,255,255,.5);border-radius:6px;font-size:14px}
+.back-btn:hover{background:rgba(255,255,255,.15)}
+/* 主体 */
+.main-container{max-width:1320px;margin:24px auto;padding:0 20px}
+.panel{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.panel-title{font-size:18px;font-weight:600;margin-bottom:16px;color:#0f4c81;padding-bottom:10px;border-bottom:2px solid #e8f0fe;display:flex;justify-content:space-between;align-items:center}
+.panel-title .hint{font-size:13px;color:#888;font-weight:normal}
+/* 统计概览卡片 */
+.overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:22px}
+.ov-card{background:linear-gradient(135deg,#f5f8fc,#e8f0fe);border:1px solid #d6e4f5;border-radius:10px;padding:16px 18px}
+.ov-card .label{font-size:13px;color:#0f4c81;margin-bottom:6px}
+.ov-card .value{font-size:26px;font-weight:700;color:#1a73e8}
+.ov-card .value small{font-size:14px;font-weight:600;color:#666;margin-left:4px}
+/* 表格 */
+.table-wrap{overflow-x:auto;border:1px solid #e3e9f2;border-radius:10px;box-shadow:0 1px 4px rgba(15,76,129,.05)}
+table{width:100%;min-width:1140px;table-layout:fixed;border-collapse:collapse;font-size:13px;background:#fff}
+/* 列宽统一：类别列、指标列固定宽度，8 个专业列自动均分剩余空间 */
+col.col-cat{width:112px}
+col.col-ind{width:196px}
+thead th{background:#0f4c81;color:#fff;padding:12px 6px;text-align:center;position:sticky;top:0;font-weight:600;letter-spacing:.2px;vertical-align:middle;white-space:normal;line-height:1.3}
+thead th:first-child,tbody td:first-child{position:sticky;left:0;z-index:3}
+thead th:first-child,thead th.col-cat{background:#0d3f6b}
+thead th.major{background:#1a73e8;font-size:12.5px;border-left:1px solid #2f86ef}
+tbody td{padding:9px 6px;text-align:center;white-space:nowrap;border-bottom:1px solid #eef1f6;vertical-align:middle}
+/* 专业列统一左边线，增强列向可读性 */
+tbody td:nth-child(n+3){border-left:1px solid #f1f4f9}
+/* 分组列（类别） */
+.cat-cell{background:#e8f0fe;color:#0f4c81;font-weight:700;text-align:center;vertical-align:middle;writing-mode:horizontal-tb;border-right:2px solid #1a73e8;font-size:13px}
+/* 指标列 */
+.ind-cell{text-align:left;color:#333;font-weight:500;background:#fafbfc;white-space:normal;line-height:1.35;font-size:12.5px;padding-left:12px}
+/* 数值单元格 */
+.num-cell{font-variant-numeric:tabular-nums;color:#333}
+.num-cell.dash{color:#c4ccd6}
+/* 百分比单元格底纹 */
+.pct{position:relative}
+.pct .bar{position:absolute;left:0;bottom:0;height:3px;background:linear-gradient(90deg,#1a73e8,#34a853)}
+.pct-num{color:#1a73e8;font-weight:600}
+/* 高亮行 */
+tbody tr:hover{background:#f3f8ff}
+tbody tr.group-row td{background:#fcfdff}
+/* 总计行 */
+tbody tr.total-row td{background:#fff8e1;font-weight:700;border-top:2px solid #1a73e8}
+tbody tr.total-row .cat-cell{background:#0f4c81;color:#fff}
+/* 图例 */
+.legend{margin-top:14px;font-size:12px;color:#888;line-height:1.8}
+.legend span.tag{display:inline-block;background:#e8f0fe;color:#0f4c81;padding:2px 8px;border-radius:4px;margin-right:6px}
+@media(max-width:600px){.top-bar{padding:15px 20px}.panel{padding:16px}}
+
+/* 免责声明 */
+.disclaimer{text-align:center;color:#888;font-size:13px;font-weight:400;letter-spacing:.3px;padding:4px 0;margin-bottom:14px}
+/* 登录窗口 */
+.login-wrapper{display:flex;justify-content:center;align-items:center;min-height:calc(100vh - 44px);padding:20px}
+.login-box{background:#fff;padding:50px 40px;border-radius:12px;box-shadow:0 5px 20px rgba(0,0,0,.08);width:100%;max-width:420px;text-align:center}
+.login-box h2{margin-bottom:30px;color:#333;font-size:22px}
+.login-box input{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:8px;font-size:16px;margin-bottom:20px;outline:none;transition:border-color .3s}
+.login-box input:focus{border-color:#1a73e8}
+.login-box button{width:100%;padding:14px;background:#1a73e8;color:#fff;border:none;border-radius:8px;font-size:16px;cursor:pointer;transition:background .3s}
+.login-box button:hover{background:#0f4c81}
+.error-msg{color:#e74c3c;margin-top:10px;font-size:14px;display:none}
+/* 脚注上标 */
+sup{color:#e74c3c;font-weight:700;font-size:.78em;margin-left:1px}
+/* 注 */
+.notes{margin-top:18px;padding:14px 16px;background:#f8fafc;border:1px solid #e8eef5;border-left:4px solid #1a73e8;border-radius:8px;font-size:12.5px;color:#555;line-height:1.8}
+.notes-title{font-weight:700;color:#0f4c81;margin-bottom:4px}
+.notes-item{margin-bottom:2px}
+</style>
+</head>
+<body>
+<div class="login-wrapper" id="loginSection">
+  <div class="login-box">
+    <h2>🔐 请输入访问密钥</h2>
+    <input type="password" id="keyInput" placeholder="请输入密钥">
+    <button onclick="verifyKey()">进入系统</button>
+    <div class="error-msg" id="errorMsg">密钥错误，请重试</div>
+  </div>
+</div>
+<div class="top-bar" id="topBar" style="display:none">
+  <div>
+    <h1>2022级机械与车辆学院各专业保研情况</h1>
+    <div class="sub">普通推免 · 科技推免 · 工程硕博推免 · 集成电路推免 · 国优计划推免 · 二批推免</div>
+  </div>
+  <a href="../ie-conference.html" class="back-btn">← 返回主页</a>
+</div>
+
+<div class="main-container" id="mainSection" style="display:none">
+<div class="disclaimer">⚠ 免责声明：本表格为客观统计，不作为今年保研依据</div>
+  <!-- 统计概览 -->
+  <div class="overview">
+    <div class="ov-card"><div class="label">专业总数</div><div class="value">8<small>个</small></div></div>
+    <div class="ov-card"><div class="label">学生总人数</div><div class="value">396<small>人</small></div></div>
+    <div class="ov-card"><div class="label">总推免人数</div><div class="value">128<small>人</small></div></div>
+    <div class="ov-card"><div class="label">整体推免率</div><div class="value">32.32<small>%</small></div></div>
+  </div>
+
+  <div class="panel">
+    <div class="panel-title">
+      <span>2022级机械与车辆学院各专业推免情况明细</span>
+      <span class="hint">“—” 表示该专业无此项推免 · 名次线均以最低录取生计</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <colgroup>
+          <col class="col-cat">
+          <col class="col-ind">
+          <col><col><col><col><col><col><col><col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>类别</th>
+            <th>指标</th>
+            <th class="major">车辆工程</th>
+            <th class="major">工业工程</th>
+            <th class="major">机械工程</th>
+            <th class="major">机械工程（全英班）</th>
+            <th class="major">能源与动力工程</th>
+            <th class="major">能源与动力工程-工商管理</th>
+            <th class="major">智能制造工程</th>
+            <th class="major">装甲车辆工程</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 总人数 -->
+          <tr class="group-row">
+            <td class="cat-cell" rowspan="1">总人数</td>
+            <td class="ind-cell">总人数</td>
+            <td class="num-cell">100</td><td class="num-cell">39</td><td class="num-cell">94</td>
+            <td class="num-cell">20</td><td class="num-cell">49</td><td class="num-cell">9</td>
+            <td class="num-cell">28</td><td class="num-cell">57</td>
+          </tr>
+
+          <!-- 总计（包括放弃） -->
+          <tr class="total-row">
+            <td class="cat-cell" rowspan="5">总计<sup>**</sup></td>
+            <td class="ind-cell">总推免人数</td>
+            <td class="num-cell">29</td><td class="num-cell">15</td><td class="num-cell">35</td>
+            <td class="num-cell">8</td><td class="num-cell">14</td><td class="num-cell">2</td>
+            <td class="num-cell">9</td><td class="num-cell">16</td>
+          </tr>
+          <tr class="total-row">
+            <td class="ind-cell">总推免占本专业的百分比</td>
+            <td class="num-cell pct pct-num">29.00%<span class="bar" style="width:29%"></span></td>
+            <td class="num-cell pct pct-num">38.46%<span class="bar" style="width:38.46%"></span></td>
+            <td class="num-cell pct pct-num">37.23%<span class="bar" style="width:37.23%"></span></td>
+            <td class="num-cell pct pct-num">40.00%<span class="bar" style="width:40%"></span></td>
+            <td class="num-cell pct pct-num">28.57%<span class="bar" style="width:28.57%"></span></td>
+            <td class="num-cell pct pct-num">22.22%<span class="bar" style="width:22.22%"></span></td>
+            <td class="num-cell pct pct-num">32.14%<span class="bar" style="width:32.14%"></span></td>
+            <td class="num-cell pct pct-num">28.07%<span class="bar" style="width:28.07%"></span></td>
+          </tr>
+          <tr class="total-row">
+            <td class="ind-cell">普通推免综合排名名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">20.00%<span class="bar" style="width:20%"></span></td>
+            <td class="num-cell pct pct-num">25.64%<span class="bar" style="width:25.64%"></span></td>
+            <td class="num-cell pct pct-num">20.21%<span class="bar" style="width:20.21%"></span></td>
+            <td class="num-cell pct pct-num">20.00%<span class="bar" style="width:20%"></span></td>
+            <td class="num-cell pct pct-num">20.41%<span class="bar" style="width:20.41%"></span></td>
+            <td class="num-cell pct pct-num">22.22%<span class="bar" style="width:22.22%"></span></td>
+            <td class="num-cell pct pct-num">21.43%<span class="bar" style="width:21.43%"></span></td>
+            <td class="num-cell pct pct-num">21.05%<span class="bar" style="width:21.05%"></span></td>
+          </tr>
+          <tr class="total-row">
+            <td class="ind-cell">总推免课程成绩名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">42.00%<span class="bar" style="width:42%"></span></td>
+            <td class="num-cell pct pct-num">38.46%<span class="bar" style="width:38.46%"></span></td>
+            <td class="num-cell pct pct-num">41.49%<span class="bar" style="width:41.49%"></span></td>
+            <td class="num-cell pct pct-num">50.00%<span class="bar" style="width:50%"></span></td>
+            <td class="num-cell pct pct-num">32.65%<span class="bar" style="width:32.65%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">32.14%<span class="bar" style="width:32.14%"></span></td>
+            <td class="num-cell pct pct-num">40.35%<span class="bar" style="width:40.35%"></span></td>
+          </tr>
+          <tr class="total-row">
+            <td class="ind-cell">总推免综合排名名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">43.00%<span class="bar" style="width:43%"></span></td>
+            <td class="num-cell pct pct-num">38.46%<span class="bar" style="width:38.46%"></span></td>
+            <td class="num-cell pct pct-num">45.74%<span class="bar" style="width:45.74%"></span></td>
+            <td class="num-cell pct pct-num">50.00%<span class="bar" style="width:50%"></span></td>
+            <td class="num-cell pct pct-num">38.78%<span class="bar" style="width:38.78%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">35.71%<span class="bar" style="width:35.71%"></span></td>
+            <td class="num-cell pct pct-num">40.35%<span class="bar" style="width:40.35%"></span></td>
+          </tr>
+          <!-- 普通推免（包括放弃） -->
+          <tr class="group-row">
+            <td class="cat-cell" rowspan="4">普通推免<sup>**</sup></td>
+            <td class="ind-cell">普通推免人数</td>
+            <td class="num-cell">20</td><td class="num-cell">10</td><td class="num-cell">19</td>
+            <td class="num-cell">4</td><td class="num-cell">10</td><td class="num-cell">2</td>
+            <td class="num-cell">6</td><td class="num-cell">12</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">普通推免综合排名名次线</td>
+            <td class="num-cell">20</td><td class="num-cell">10</td><td class="num-cell">19</td>
+            <td class="num-cell">4</td><td class="num-cell">10</td><td class="num-cell">2</td>
+            <td class="num-cell">6</td><td class="num-cell">12</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">普通推免综合排名名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">20.00%<span class="bar" style="width:20%"></span></td>
+            <td class="num-cell pct pct-num">25.64%<span class="bar" style="width:25.64%"></span></td>
+            <td class="num-cell pct pct-num">20.21%<span class="bar" style="width:20.21%"></span></td>
+            <td class="num-cell pct pct-num">20.00%<span class="bar" style="width:20%"></span></td>
+            <td class="num-cell pct pct-num">20.41%<span class="bar" style="width:20.41%"></span></td>
+            <td class="num-cell pct pct-num">22.22%<span class="bar" style="width:22.22%"></span></td>
+            <td class="num-cell pct pct-num">21.43%<span class="bar" style="width:21.43%"></span></td>
+            <td class="num-cell pct pct-num">21.05%<span class="bar" style="width:21.05%"></span></td>
+          </tr>
+          <tr>
+            <td class="ind-cell">普通推免占本专业的百分比</td>
+            <td class="num-cell pct pct-num">20.00%<span class="bar" style="width:20%"></span></td>
+            <td class="num-cell pct pct-num">25.64%<span class="bar" style="width:25.64%"></span></td>
+            <td class="num-cell pct pct-num">20.21%<span class="bar" style="width:20.21%"></span></td>
+            <td class="num-cell pct pct-num">20.00%<span class="bar" style="width:20%"></span></td>
+            <td class="num-cell pct pct-num">20.41%<span class="bar" style="width:20.41%"></span></td>
+            <td class="num-cell pct pct-num">22.22%<span class="bar" style="width:22.22%"></span></td>
+            <td class="num-cell pct pct-num">21.43%<span class="bar" style="width:21.43%"></span></td>
+            <td class="num-cell pct pct-num">21.05%<span class="bar" style="width:21.05%"></span></td>
+          </tr>
+
+          <!-- 放弃推免 -->
+          <tr class="group-row">
+            <td class="cat-cell" rowspan="1">放弃推免</td>
+            <td class="ind-cell">放弃推免人数</td>
+            <td class="num-cell dash">—</td><td class="num-cell">2</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+          </tr>
+
+          <!-- 科技推免 -->
+          <tr class="group-row">
+            <td class="cat-cell" rowspan="4">科技推免</td>
+            <td class="ind-cell">科技（竞赛）推免人数</td>
+            <td class="num-cell">2</td><td class="num-cell dash">—</td><td class="num-cell">1</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">科技推免综合排名名次线</td>
+            <td class="num-cell">13</td><td class="num-cell dash">—</td><td class="num-cell">12</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">科技推免综合排名名次线（百分比计）</td>
+            <td class="num-cell pct pct-num">13.00%<span class="bar" style="width:13%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">12.77%<span class="bar" style="width:12.77%"></span></td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">科技推免占本专业的百分比</td>
+            <td class="num-cell pct pct-num">2.00%<span class="bar" style="width:2%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">1.06%<span class="bar" style="width:1.06%"></span></td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+          </tr>
+
+          <!-- 工程硕博推免 -->
+          <tr class="group-row">
+            <td class="cat-cell" rowspan="6">工程硕博<br>推免</td>
+            <td class="ind-cell">工程推免人数</td>
+            <td class="num-cell">3</td><td class="num-cell">4</td><td class="num-cell">8</td>
+            <td class="num-cell">3</td><td class="num-cell">3</td><td class="num-cell dash">—</td>
+            <td class="num-cell">2</td><td class="num-cell">4</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">工程推免课程成绩名次<sup>*</sup></td>
+            <td class="num-cell">35</td><td class="num-cell">15</td><td class="num-cell">37</td>
+            <td class="num-cell">7</td><td class="num-cell">14</td><td class="num-cell dash">—</td>
+            <td class="num-cell">9</td><td class="num-cell">23</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">工程推免课程成绩名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">35.00%<span class="bar" style="width:35%"></span></td>
+            <td class="num-cell pct pct-num">38.46%<span class="bar" style="width:38.46%"></span></td>
+            <td class="num-cell pct pct-num">39.36%<span class="bar" style="width:39.36%"></span></td>
+            <td class="num-cell pct pct-num">35.00%<span class="bar" style="width:35%"></span></td>
+            <td class="num-cell pct pct-num">28.57%<span class="bar" style="width:28.57%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">32.14%<span class="bar" style="width:32.14%"></span></td>
+            <td class="num-cell pct pct-num">40.35%<span class="bar" style="width:40.35%"></span></td>
+          </tr>
+          <tr>
+            <td class="ind-cell">工程推免综合排名名次<sup>*</sup></td>
+            <td class="num-cell">33</td><td class="num-cell">15</td><td class="num-cell">36</td>
+            <td class="num-cell">7</td><td class="num-cell">13</td><td class="num-cell dash">—</td>
+            <td class="num-cell">8</td><td class="num-cell">23</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">工程推免综合排名名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">33.00%<span class="bar" style="width:33%"></span></td>
+            <td class="num-cell pct pct-num">38.46%<span class="bar" style="width:38.46%"></span></td>
+            <td class="num-cell pct pct-num">38.30%<span class="bar" style="width:38.30%"></span></td>
+            <td class="num-cell pct pct-num">35.00%<span class="bar" style="width:35%"></span></td>
+            <td class="num-cell pct pct-num">26.53%<span class="bar" style="width:26.53%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">28.57%<span class="bar" style="width:28.57%"></span></td>
+            <td class="num-cell pct pct-num">40.35%<span class="bar" style="width:40.35%"></span></td>
+          </tr>
+          <tr>
+            <td class="ind-cell">工程推免占本专业的百分比</td>
+            <td class="num-cell pct pct-num">3.00%<span class="bar" style="width:3%"></span></td>
+            <td class="num-cell pct pct-num">10.26%<span class="bar" style="width:10.26%"></span></td>
+            <td class="num-cell pct pct-num">8.51%<span class="bar" style="width:8.51%"></span></td>
+            <td class="num-cell pct pct-num">15.00%<span class="bar" style="width:15%"></span></td>
+            <td class="num-cell pct pct-num">6.12%<span class="bar" style="width:6.12%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">7.14%<span class="bar" style="width:7.14%"></span></td>
+            <td class="num-cell pct pct-num">7.02%<span class="bar" style="width:7.02%"></span></td>
+          </tr>
+
+          <!-- 集成电路推免 -->
+          <tr class="group-row">
+            <td class="cat-cell" rowspan="6">集成电路<br>推免</td>
+            <td class="ind-cell">集电推免人数</td>
+            <td class="num-cell">3</td><td class="num-cell dash">—</td><td class="num-cell">7</td>
+            <td class="num-cell">1</td><td class="num-cell">1</td><td class="num-cell dash">—</td>
+            <td class="num-cell">1</td><td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">集电推免课程成绩名次<sup>*</sup></td>
+            <td class="num-cell">42</td><td class="num-cell dash">—</td><td class="num-cell">39</td>
+            <td class="num-cell">10</td><td class="num-cell">16</td><td class="num-cell dash">—</td>
+            <td class="num-cell">8</td><td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">集电推免课程成绩名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">42.00%<span class="bar" style="width:42%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">41.49%<span class="bar" style="width:41.49%"></span></td>
+            <td class="num-cell pct pct-num">50.00%<span class="bar" style="width:50%"></span></td>
+            <td class="num-cell pct pct-num">32.65%<span class="bar" style="width:32.65%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">28.57%<span class="bar" style="width:28.57%"></span></td>
+            <td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">集电推免综合排名名次<sup>*</sup></td>
+            <td class="num-cell">43</td><td class="num-cell dash">—</td><td class="num-cell">43</td>
+            <td class="num-cell">10</td><td class="num-cell">19</td><td class="num-cell dash">—</td>
+            <td class="num-cell">10</td><td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">集电推免综合排名名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">43.00%<span class="bar" style="width:43%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">45.74%<span class="bar" style="width:45.74%"></span></td>
+            <td class="num-cell pct pct-num">50.00%<span class="bar" style="width:50%"></span></td>
+            <td class="num-cell pct pct-num">38.78%<span class="bar" style="width:38.78%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">35.71%<span class="bar" style="width:35.71%"></span></td>
+            <td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">集电推免占本专业的百分比</td>
+            <td class="num-cell pct pct-num">3.00%<span class="bar" style="width:3%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">7.45%<span class="bar" style="width:7.45%"></span></td>
+            <td class="num-cell pct pct-num">5.00%<span class="bar" style="width:5%"></span></td>
+            <td class="num-cell pct pct-num">2.04%<span class="bar" style="width:2.04%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">3.57%<span class="bar" style="width:3.57%"></span></td>
+            <td class="num-cell dash">—</td>
+          </tr>
+
+          <!-- 国优计划推免 -->
+          <tr class="group-row">
+            <td class="cat-cell" rowspan="6">国优计划<br>推免</td>
+            <td class="ind-cell">国优推免人数</td>
+            <td class="num-cell">1</td><td class="num-cell">1</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">国优推免课程成绩名次<sup>*</sup></td>
+            <td class="num-cell">34</td><td class="num-cell">12</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">国优推免课程成绩名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">34.00%<span class="bar" style="width:34%"></span></td>
+            <td class="num-cell pct pct-num">30.77%<span class="bar" style="width:30.77%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">国优推免综合排名名次<sup>*</sup></td>
+            <td class="num-cell">35</td><td class="num-cell">11</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">国优推免综合排名名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">35.00%<span class="bar" style="width:35%"></span></td>
+            <td class="num-cell pct pct-num">28.21%<span class="bar" style="width:28.21%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">国优推免占本专业的百分比</td>
+            <td class="num-cell pct pct-num">1.00%<span class="bar" style="width:1%"></span></td>
+            <td class="num-cell pct pct-num">2.56%<span class="bar" style="width:2.56%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+            <td class="num-cell dash">—</td><td class="num-cell dash">—</td>
+          </tr>
+
+          <!-- 二批推免汇总 -->
+          <tr class="group-row">
+            <td class="cat-cell" rowspan="6">二批推免<br>汇总</td>
+            <td class="ind-cell">二批推免人数</td>
+            <td class="num-cell">7</td><td class="num-cell">5</td><td class="num-cell">15</td>
+            <td class="num-cell">4</td><td class="num-cell">4</td><td class="num-cell dash">—</td>
+            <td class="num-cell">3</td><td class="num-cell">4</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">二批推免课程成绩名次<sup>*</sup></td>
+            <td class="num-cell">42</td><td class="num-cell">15</td><td class="num-cell">39</td>
+            <td class="num-cell">10</td><td class="num-cell">16</td><td class="num-cell dash">—</td>
+            <td class="num-cell">9</td><td class="num-cell">23</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">二批推免课程成绩名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">42.00%<span class="bar" style="width:42%"></span></td>
+            <td class="num-cell pct pct-num">38.46%<span class="bar" style="width:38.46%"></span></td>
+            <td class="num-cell pct pct-num">41.49%<span class="bar" style="width:41.49%"></span></td>
+            <td class="num-cell pct pct-num">50.00%<span class="bar" style="width:50%"></span></td>
+            <td class="num-cell pct pct-num">32.65%<span class="bar" style="width:32.65%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">32.14%<span class="bar" style="width:32.14%"></span></td>
+            <td class="num-cell pct pct-num">40.35%<span class="bar" style="width:40.35%"></span></td>
+          </tr>
+          <tr>
+            <td class="ind-cell">二批推免综合排名名次<sup>*</sup></td>
+            <td class="num-cell">43</td><td class="num-cell">15</td><td class="num-cell">43</td>
+            <td class="num-cell">10</td><td class="num-cell">19</td><td class="num-cell dash">—</td>
+            <td class="num-cell">10</td><td class="num-cell">23</td>
+          </tr>
+          <tr>
+            <td class="ind-cell">二批推免综合排名名次线<sup>*</sup></td>
+            <td class="num-cell pct pct-num">43.00%<span class="bar" style="width:43%"></span></td>
+            <td class="num-cell pct pct-num">38.46%<span class="bar" style="width:38.46%"></span></td>
+            <td class="num-cell pct pct-num">45.74%<span class="bar" style="width:45.74%"></span></td>
+            <td class="num-cell pct pct-num">50.00%<span class="bar" style="width:50%"></span></td>
+            <td class="num-cell pct pct-num">38.78%<span class="bar" style="width:38.78%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">35.71%<span class="bar" style="width:35.71%"></span></td>
+            <td class="num-cell pct pct-num">40.35%<span class="bar" style="width:40.35%"></span></td>
+          </tr>
+          <tr>
+            <td class="ind-cell">二批推免占本专业的百分比</td>
+            <td class="num-cell pct pct-num">7.00%<span class="bar" style="width:7%"></span></td>
+            <td class="num-cell pct pct-num">12.82%<span class="bar" style="width:12.82%"></span></td>
+            <td class="num-cell pct pct-num">15.96%<span class="bar" style="width:15.96%"></span></td>
+            <td class="num-cell pct pct-num">20.00%<span class="bar" style="width:20%"></span></td>
+            <td class="num-cell pct pct-num">8.16%<span class="bar" style="width:8.16%"></span></td>
+            <td class="num-cell dash">—</td>
+            <td class="num-cell pct pct-num">10.71%<span class="bar" style="width:10.71%"></span></td>
+            <td class="num-cell pct pct-num">7.02%<span class="bar" style="width:7.02%"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="legend">
+      <span class="tag">说明</span>“名额线 / 名次线（百分比计）”表示该类别推免最低录取生在专业内的排名百分比；
+      “占本专业的百分比”为该类别推免人数占本专业总人数的比例；“—” 表示该专业本年度无此项推免。
+      百分比单元格底部色条直观反映占比高低。
+    </div>
+    <div class="notes">
+      <div class="notes-title">注：</div>
+      <div class="notes-item"><sup>*</sup> 以最低录取生计：表中各类推免的“课程成绩名次”“综合排名名次”及对应“名次线（百分比计）”，均按当年该类推免实际最低录取学生在所属专业内的排名（占本专业人数百分比）计。</div>
+      <div class="notes-item"><sup>**</sup> 包括放弃：该项统计含已放弃推免资格的学生。</div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* 访问密钥以异或方式加密存储于源码，运行期解密比对，源文件中不含明文密码 */
+var ENC = [56, 51, 46, 104, 106, 104, 108];
+function decryptKey(a){ return a.map(function(v){ return String.fromCharCode(v ^ 0x5A); }).join(''); }
+function verifyKey(){
+  var input = document.getElementById('keyInput').value.trim();
+  if(input === decryptKey(ENC)){
+    document.getElementById('loginSection').style.display = 'none';
+    document.getElementById('topBar').style.display = 'flex';
+    document.getElementById('mainSection').style.display = 'block';
+  }else{
+    document.getElementById('errorMsg').style.display = 'block';
+  }
+}
+document.getElementById('keyInput').addEventListener('keypress', function(e){ if(e.key === 'Enter') verifyKey(); });
+</script>
+
+</body>
+</html>
