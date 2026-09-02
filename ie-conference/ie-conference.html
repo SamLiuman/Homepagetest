@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IE大会通知平台</title>
+    <!-- 若改用自定义域名（非 xxx.github.io），取消下面注释并填写仓库信息，否则实时同步无法定位仓库 -->
+    <!--
+    <script>
+      window.IE_SITE_CONFIG = { owner: '你的GitHub用户名', repo: '仓库名', branch: 'main', base: '/仓库名/' };
+    </script>
+    -->
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -94,6 +100,35 @@
         }
         .badge-meeting { background: #9b59b6; }
         .badge-doc { background: #3498db; }
+        .badge-pdf { background: #e74c3c; }
+
+        /* —— 自动列表：状态行 —— */
+        .notice-status {
+            padding: 12px 30px;
+            color: #999;
+            font-size: 13px;
+            border-top: 1px dashed #eee;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .notice-status[data-kind="loading"]::before,
+        .notice-status[data-kind="warn"]::before {
+            content: "";
+            width: 12px; height: 12px; border-radius: 50%;
+            border: 2px solid #dcdfe6; border-top-color: #6c5ce7;
+            animation: spin .8s linear infinite;
+            flex-shrink: 0;
+        }
+        .notice-status[data-kind="warn"] {
+            color: #b26a00;
+            background: #fffaf0;
+        }
+        .notice-status[data-kind="warn"]::before {
+            border-top-color: #e6a23c;
+            animation: none;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 	.tag {
             display: inline-block;
             padding: 2px 8px;
@@ -125,7 +160,11 @@
                 <span class="icon">🏛️</span>
                 <h2>抽象时政评论</h2>
             </div>
-            <ul class="notice-list">
+            <ul class="notice-list"
+                data-auto-dir="政论"
+                data-auto-manifest="data/docs.json"
+                data-auto-badge="评论"
+                data-auto-viewer="">
                 <li class="notice-item">
                     <a href="./政论/从一体推进教育科技人才发展看IE全栈人才培养战略的三年.html" class="notice-title">
                         <span class="badge badge-meeting">评论</span>
@@ -149,7 +188,13 @@
                 <span class="icon">🎓</span>
                 <h2>教学科研竞赛委员会</h2>
             </div>
-            <ul class="notice-list">
+            <!-- 自动列表：目录里新增 PDF / HTML 即自动出现。
+                 数据源：静态清单 data/committee-docs.json（GitHub Actions 生成） → GitHub API（实时） → 下列写死条目（兜底） -->
+            <ul class="notice-list"
+                data-auto-dir="教学科研竞赛委员会"
+                data-auto-manifest="data/docs.json"
+                data-auto-new-days="30"
+                data-auto-sort="date-desc">
 
 		<li class="notice-item">
                     <a href="./教学科研竞赛委员会/2022级机械与车辆学院各专业保研情况.html" class="notice-title">
@@ -203,5 +248,7 @@
             </ul>
         </div>
     </div>
+
+    <script src="./assets/auto-docs.js"></script>
 </body>
 </html>
