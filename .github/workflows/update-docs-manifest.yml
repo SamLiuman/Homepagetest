@@ -1,0 +1,58 @@
+name: 更新文档清单
+
+# 往 ie-conference/教学科研竞赛委员会/ 等目录里丢 PDF 后，本流程自动重建静态清单并提交，
+# 页面首屏即可秒开显示（GitHub API 实时同步作为第二道保险）。
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'ie-conference/教学科研竞赛委员会/**'
+      - 'ie-conference/政论/**'
+      - 'ie-conference/tools/**'
+      - '.github/workflows/update-docs-manifest.yml'
+  workflow_dispatch:      # 支持在 Actions 页面手动触发
+  schedule:
+    - cron: '17 3 * * *'  # 每天 UTC 03:17（北京时间 11:17）兜底跑一次
+
+permissions:
+  contents: write
+
+# 同一时间只允许一个实例运行；后来的排队等待，避免并发 push 互相覆盖
+concurrency:
+  group: update-docs-manifest
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # 需要完整历史才能取到每个文件的提交时间
+
+      - name: 准备 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 生成清单
+        run: python ie-conference/tools/generate_docs_manifest.py
+
+      - name: 有变化则提交
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # 只提交清单文件本身，避免把其它意外改动带进仓库
+          git add ie-conference/data/docs.json
+          if git diff --cached --quiet; then
+            echo "清单无变化，跳过提交"
+            exit 0
+          fi
+          git commit -m "chore(docs): 自动更新文档清单 [skip ci]"
+          # 期间若有他人推送，先 rebase 再推，失败重试一次
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || \
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          echo "清单已更新并提交"
