@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IE大会通知平台</title>
-    <!-- 若改用自定义域名（非 xxx.github.io），取消下面注释并填写仓库信息，否则实时同步无法定位仓库 -->
-    <!--
-    <script>
-      window.IE_SITE_CONFIG = { owner: '你的GitHub用户名', repo: '仓库名', branch: 'main', base: '/仓库名/' };
-    </script>
-    -->
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -101,8 +95,6 @@
         .badge-meeting { background: #9b59b6; }
         .badge-doc { background: #3498db; }
         .badge-pdf { background: #e74c3c; }
-
-        /* —— 自动列表：状态行 —— */
         .notice-status {
             padding: 12px 30px;
             color: #999;
@@ -139,7 +131,6 @@
         }
         .tag-urgent { background: #e74c3c; }
         .tag-new { background: #f39c12; }
-
         @media (max-width: 600px) {
             .top-bar { padding: 15px 20px; }
             .notice-item { flex-direction: column; align-items: flex-start; gap: 6px; }
@@ -152,9 +143,7 @@
         <h1>IE大会通知平台</h1>
         <a href="../index.html" class="back-btn">← 返回主页</a>
     </div>
-
     <div class="container">
-        <!-- 抽象评论 -->
         <div class="committee-section">
             <div class="committee-header header-1">
                 <span class="icon">🏛️</span>
@@ -181,37 +170,31 @@
                 </li>
               </ul>
         </div>
-
-	<!-- 教学科研竞赛委员会 -->
         <div class="committee-section">
             <div class="committee-header header-1">
                 <span class="icon">🎓</span>
                 <h2>教学科研竞赛委员会</h2>
             </div>
-            <!-- 自动列表：目录里新增 PDF / HTML 即自动出现。
-                 数据源：静态清单 data/committee-docs.json（GitHub Actions 生成） → GitHub API（实时） → 下列写死条目（兜底） -->
             <ul class="notice-list"
                 data-auto-dir="教学科研竞赛委员会"
                 data-auto-manifest="data/docs.json"
                 data-auto-new-days="30"
                 data-auto-sort="date-desc">
-
-		<li class="notice-item">
+                <li class="notice-item">
                     <a href="./教学科研竞赛委员会/2022级机械与车辆学院各专业保研情况.html" class="notice-title">
                         <span class="tag tag-new">最新</span>
                         2022级机械与车辆学院各专业保研情况
                     </a>
                     <span class="notice-date">2026-08-20</span>
                 </li>
-
-		<li class="notice-item">
+                <li class="notice-item">
                     <a href="./教学科研竞赛委员会/关于感谢2026年度全国大学生统计建模竞赛（校内赛）IE团队及相关人员的通告.html" class="notice-title">
                         <span class="badge badge-doc">文件</span>
                         【教科竞〔2026〕4 号】感谢2026年度全国大学生统计建模竞赛（校内赛）IE团队及相关人员的通告
                     </a>
                     <span class="notice-date">2026-06-11</span>
                 </li>
-		<li class="notice-item">
+                <li class="notice-item">
                     <a href="./教学科研竞赛委员会/关于感谢第十届北京理工大学权益提案大赛IE团队及相关人员的通告.html" class="notice-title">
                         <span class="badge badge-doc">文件</span>
                         【教科竞〔2026〕3 号】关于感谢第十届北京理工大学权益提案大赛IE团队及相关人员的通告
@@ -225,14 +208,8 @@
                     </a>
                     <span class="notice-date">2026-05-27</span>
                 </li>
-                </li>
-                </li>
-
              </ul>
         </div>
-
-
-        <!-- 经济与审计委员会 -->
         <div class="committee-section">
             <div class="committee-header header-2">
                 <span class="icon">💰</span>
@@ -249,7 +226,6 @@
             </ul>
         </div>
     </div>
-
     <script src="./assets/auto-docs.js"></script>
 </body>
 </html>
