@@ -1,4 +1,4 @@
-/*!
+/*
  * auto-docs.js v1.0 —— 静态站「目录自动列表」引擎
  *
  * 用法：给列表 <ul class="notice-list"> 加上属性即可
