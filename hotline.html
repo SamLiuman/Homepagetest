@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>站主热线 · IronEgg</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 50px 20px;
+            color: #333;
+        }
+        .wrap { max-width: 860px; margin: 0 auto; }
+        .topbar { text-align: center; color: #fff; margin-bottom: 28px; }
+        .topbar h1 { font-size: 30px; font-weight: 600; margin-bottom: 8px; }
+        .topbar p { font-size: 15px; opacity: 0.9; }
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 30px 34px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .intro {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 22px;
+            border-left: 4px solid #6c5ce7;
+            padding: 4px 0 4px 14px;
+            background: #faf9ff;
+            border-radius: 0 8px 8px 0;
+        }
+        .intro b { color: #5b4bc4; }
+        .back {
+            display: inline-block;
+            margin-top: 26px;
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .back:hover { opacity: 1; }
+        .note {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #999;
+            line-height: 1.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="topbar">
+            <h1>站主热线</h1>
+            <p>IronEgg 服务平台 · 你问，站主答</p>
+        </div>
+
+        <div class="card">
+            <div class="intro">
+                📮 在这里向 <b>站主</b> 提问，站主会在下方 <b>公开回复</b>。<br>
+                ⚠️ 请勿发布违规、骚扰、广告或不相关内容；<b>站主有权直接删除</b>此类内容。<br>
+                🔐 发布需登录 GitHub 账号（用于身份与内容管理，你的问题会公开展示）。
+            </div>
+
+            <!-- ============================================================
+                 站主热线（Giscus 评论系统，底层基于 GitHub Discussions）
+
+                 首次使用前，站主只需完成 3 步（一次性）：
+                   1) 打开仓库 → Settings → General → Features → 勾选 Discussions → Save
+                   2) 安装 Giscus 应用：https://github.com/apps/giscus  →  Install  →  选本仓库
+                   3) 打开 https://giscus.app
+                         · Repository 填  SamLiuman/Homepagetest
+                         · 在 Discussions 里新建一个分类，名称填「站主热线」，类型选 Q&A（或 Discussion）
+                         · 语言选 简体中文，主题选 light，其余默认
+                         · 页面会生成一段 <script>……</script>
+                     把下面整段 <script> 替换成 giscus.app 生成的即可
+                     （重点是补上 data-repo-id 与 data-category-id 两个值）
+
+                 之后：访客提问 → 仓库 Discussions 里出现 → 站主登录 github.com 在该 Discussion 下
+                 回复 / 删除 / 锁定。页面会自动同步，无需改代码。
+                 ============================================================ -->
+            <script src="https://giscus.app/client.js"
+                    data-repo="SamLiuman/Homepagetest"
+                    data-repo-id="REPO_NODE_ID"
+                    data-category="站主热线"
+                    data-category-id="CATEGORY_NODE_ID"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-lang="zh-CN"
+                    data-theme="light"
+                    data-loading="lazy"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+
+            <p class="note">
+                若此处长时间显示空白，说明站主尚未完成上方 3 步配置，或你的网络无法访问 giscus.app。
+            </p>
+        </div>
+
+        <a class="back" href="index.html">← 返回主页</a>
+    </div>
+</body>
+</html>

@@ -28,10 +28,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 检出仓库
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0        # 需要完整历史才能取到每个文件的提交时间
 
+      # 注：GitHub 正将 runners 从 Node 20 迁到 Node 24，旧版 action 会打印弃用警告。
+      # checkout 已升到 v5；setup-python 保持 v5（目前最新大版本）。该警告无害，
+      # 待官方发布 Node 24 构建后自动消失。
       - name: 准备 Python
         uses: actions/setup-python@v5
         with:
